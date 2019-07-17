@@ -1,0 +1,27 @@
+
+<div class="example-container">
+  <h1>Reddit viewer</h1>
+  <mat-card class="header" fxlayout="row" class="card">
+      <mat-form-field class="select">
+      <mat-label>Select Reddist</mat-label>
+      <mat-select [(ngModel)]="topic" (ngModelChange)="setName($event)">
+      <mat-option #f *ngFor="let urllinks of urllink" [value]="urllinks">{{urllinks}}</mat-option>
+      </mat-select>
+      </mat-form-field>
+  <mat-form-field class="select1">
+  <mat-label>Number of Redists</mat-label>
+      <mat-select [(ngModel)]="counter" (ngModelChange)="setCounter($event)">
+          <mat-option [value]="12">12</mat-option>
+          <mat-option [value]="20">20</mat-option>
+          <mat-option [value]="60">60</mat-option>
+          <mat-option [value]="100">100</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button (click)="showData()" mat-raised-button color="primary" >READY!</button>
+ </mat-card>
+<mat-card fxLayout="row wrap" fxlayout="column" fxlayoutalign="center" class="card1"> 
+  <figure *ngFor="let path of photoUrllink">
+      <img *ngIf="path" [src]="path">
+  </figure>
+</mat-card>
+</div>
