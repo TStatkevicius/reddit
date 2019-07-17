@@ -38,12 +38,12 @@ export class MainComponent implements OnInit {
     return this.http.get(url).toPromise();
   }
 
-  public getConfigurationdata(): Promise<any> {
+  public getdata(): Promise<any> {
     const url = 'https://www.reddit.com/' + this.selectedTopic + '.json?&show=all&limit=' + this.selectedCount;
     return this.http.get(url).toPromise();
   }
 
-  public getPhotoConfigurationData(): Promise<any> {
+  public getPhotoData(): Promise<any> {
     const url = 'https://www.reddit.com/' + this.selectedTopic + '.json?&show=all&limit=' + this.selectedCount;
     return this.http.get(url).toPromise();
   }
@@ -57,7 +57,7 @@ export class MainComponent implements OnInit {
   }
 
   public navigateToRedit() {
-    this.getConfigurationdata()
+    this.getdata()
       .then((res) => {
         res.data.children.map(content => this.permalinks.push(content.data.permalink));
       });
@@ -66,7 +66,7 @@ export class MainComponent implements OnInit {
 
   public showData() {
     this.photoUrllink.fill('');
-    this.getPhotoConfigurationData()
+    this.getPhotoData()
       .then((res) => {
         res.data.children.map(content => this.photoUrllink.push(content.data.url));
       });
