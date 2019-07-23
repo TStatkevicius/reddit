@@ -25,4 +25,25 @@ button{
 .card1{
     width: 80%;
     margin: 0 auto;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch center;
+    align-items: stretch;
+
+}
+img{
+    width: 100%;
+}
+figure{
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    max-height: 300px;
+    overflow: hidden;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    max-width: 22%;
+    flex-direction: row;
+    display: flex;
 }

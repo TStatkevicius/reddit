@@ -1,7 +1,7 @@
 
 // import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+// import { Data } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  topic:any;
+  topic: any;
   counter: string;
   Data: string;
   selectedTopic: string;
@@ -45,7 +45,9 @@ export class MainComponent implements OnInit {
 
   public getPhotoData(): Promise<any> {
     const url = 'https://www.reddit.com/' + this.selectedTopic + '.json?&show=all&limit=' + this.selectedCount;
+    if (url) {
     return this.http.get(url).toPromise();
+    }
   }
 
   public setName(data: any) {
@@ -71,5 +73,4 @@ export class MainComponent implements OnInit {
         res.data.children.map(content => this.photoUrllink.push(content.data.url));
       });
   }
-
 }
